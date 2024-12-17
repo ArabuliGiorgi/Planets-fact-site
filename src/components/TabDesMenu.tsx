@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom"
-import { MenuDiv } from "../styled-components/TabDesMenuStyle"
+import { MenuDiv } from "../styled-components/PageStyle"
 
 const TabDesMenu: React.FC = () => {
     const navigate = useNavigate();

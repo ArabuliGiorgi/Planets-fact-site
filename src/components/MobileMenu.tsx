@@ -1,5 +1,6 @@
-import { Menu } from "../styled-components/MobileMenuStyle"
+import { Menu } from "../styled-components/PageStyle"
 import arrow from "/images/icon-chevron.svg"
+import data from "../data.json"
 import { useNavigate } from "react-router-dom"
 
 const MobileMenu: React.FC<{
@@ -10,72 +11,22 @@ const MobileMenu: React.FC<{
         nav(str);
         setMobileMenu(false);
     };
+    const planets = data;
 
     return(
         <Menu>
-            <div className="planets" onClick={() => navigate("/Mercury")}>
-                <div className="planets-child">
-                    <div className="Oval bg-[#DEF4FC]"></div>
-                    <h2>MERCURY</h2>
+            {planets.map((element) => (
+                <div key={element.name}>
+                    <div className="planets" onClick={() => navigate(`/${element.name}`)}>
+                        <div className="planets-child">
+                            <div className={`Oval bg-[${element.mobileColor}]`}></div>
+                            <h2>{element.name.toUpperCase()}</h2>
+                        </div>
+                        <img src={arrow} alt="arrow" />
+                    </div>
+                    {element !== planets[planets.length - 1] ? <div className="line"></div> : ''}
                 </div>
-                <img src={arrow} alt="arrow" />
-            </div>
-            <div className="line"></div>
-            <div className="planets" onClick={() => navigate("/Venus")}>
-                <div className="planets-child">
-                    <div className="Oval bg-[#F7CC7F]"></div>
-                    <h2>VENUS</h2>
-                </div>
-                <img src={arrow} alt="arrow" />
-            </div>
-            <div className="line"></div>
-            <div className="planets" onClick={() => navigate("/Earth")}>
-                <div className="planets-child">
-                    <div className="Oval bg-[#545BFE]"></div>
-                    <h2>EARTH</h2>
-                </div>
-                <img src={arrow} alt="arrow" />
-            </div>
-            <div className="line"></div>
-            <div className="planets" onClick={() => navigate("/Mars")}>
-                <div className="planets-child">
-                    <div className="Oval bg-[#FF6A45]"></div>
-                    <h2>MARS</h2>
-                </div>
-                <img src={arrow} alt="arrow" />
-            </div>
-            <div className="line"></div>
-            <div className="planets" onClick={() => navigate("/Jupiter")}>
-                <div className="planets-child">
-                    <div className="Oval bg-[#ECAD7A]"></div>
-                    <h2>JUPITER</h2>
-                </div>
-                <img src={arrow} alt="arrow" />
-            </div>
-            <div className="line"></div>
-            <div className="planets" onClick={() => navigate("/Saturn")}>
-                <div className="planets-child">
-                    <div className="Oval bg-[#FCCB6B]"></div>
-                    <h2>SATURN</h2>
-                </div>
-                <img src={arrow} alt="arrow" />
-            </div>
-            <div className="line"></div>
-            <div className="planets" onClick={() => navigate("/Uranus")}>
-                <div className="planets-child">
-                    <div className="Oval bg-[#65F0D5]"></div>
-                    <h2>URANUS</h2>
-                </div>
-                <img src={arrow} alt="arrow" />
-            </div>
-            <div className="line"></div>
-            <div className="planets" onClick={() => navigate("/Neptune")}>
-                <div className="planets-child">
-                    <div className="Oval bg-[#497EFA]"></div>
-                    <h2>NEPTUNE</h2>
-                </div>
-                <img src={arrow} alt="arrow" />
-            </div>
+            ))}
         </Menu>
     )
 }
