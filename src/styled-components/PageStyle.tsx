@@ -99,11 +99,19 @@ const MenuDiv = styled.div`
     @media only screen and (min-width: 720px){
         min-height: 25px;
         width: 665px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+        display: block;
 
-        h1{
+        nav{
+            width: 100%;
+            height: 100%;
+        }
+        ul{
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        li{
             font-size: 11px;
             font-weight: 700;
             line-height: 25px;
@@ -116,13 +124,13 @@ const MenuDiv = styled.div`
 
     @media only screen and (min-width: 1440px){
         height: 100%;
-        h1{
+        li{
             height: 100%;
             display: flex;
             align-items: end;
             cursor: pointer;
         }
-        h1:hover{
+        li:hover{
             opacity: 100%;
         }
         #mercury:hover{
