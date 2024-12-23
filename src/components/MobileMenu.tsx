@@ -19,7 +19,7 @@ const MobileMenu: React.FC<{
                 <div key={element.name}>
                     <div className="planets" onClick={() => navigate(`/${element.name}`)}>
                         <div className="planets-child">
-                            <div className={`Oval bg-[${element.mobileColor}]`}></div>
+                            <div className={`Oval`} style={{backgroundColor: element.mobileColor}}></div>
                             <h2>{element.name.toUpperCase()}</h2>
                         </div>
                         <img src={arrow} alt="arrow" />

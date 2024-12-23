@@ -1,5 +1,6 @@
 import { Outlet, useNavigate, useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import Header from "../components/Header";
 
 const navigationLinks: string[] = [
     "/Mercury",
@@ -25,6 +26,10 @@ export default function Layout(){
     }, []);
 
     return(
-        <Outlet/>
+        <>
+            <Header></Header>
+            <Outlet/>
+        </>
+        
     )
 }
